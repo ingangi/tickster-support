@@ -1,17 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Tickster</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tickster — Support</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, 'SF Mono', 'Menlo', 'Courier New', monospace;
+      background: #0a0515;
+      color: #cccccc;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 40px 24px 60px; }
+    h1 {
+      font-family: -apple-system, 'Courier New', monospace;
+      font-size: 28px;
+      color: #ff2d95;
+      text-shadow: 0 0 20px rgba(255,45,149,0.4);
+      margin-bottom: 6px;
+      letter-spacing: 4px;
+    }
+    .tagline { color: #888899; font-size: 13px; margin-bottom: 36px; }
+    h2 {
+      font-size: 16px;
+      color: #00f0ff;
+      text-shadow: 0 0 10px rgba(0,240,255,0.3);
+      margin: 36px 0 12px;
+      letter-spacing: 2px;
+    }
+    h3 {
+      font-size: 14px;
+      color: #ff2d95;
+      margin: 20px 0 8px;
+    }
+    p { margin-bottom: 12px; font-size: 14px; }
+    ul { margin: 8px 0 16px 20px; font-size: 14px; }
+    li { margin-bottom: 6px; }
+    a { color: #00f0ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(255,45,149,0.3), transparent);
+      margin: 28px 0;
+    }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 20px; }
+    .feature-card {
+      background: rgba(255,45,149,0.05);
+      border: 1px solid rgba(255,45,149,0.15);
+      padding: 14px;
+      font-size: 13px;
+    }
+    .feature-card strong { color: #00f0ff; display: block; margin-bottom: 4px; }
+    .contact-box {
+      background: rgba(0,240,255,0.05);
+      border: 1px solid rgba(0,240,255,0.2);
+      padding: 16px 20px;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    .contact-box a { font-size: 15px; font-weight: 600; }
+    .footer { margin-top: 48px; color: #555; font-size: 12px; text-align: center; }
+    .footer a { color: #888; }
+  </style>
 </head>
 <body>
-  <h1>Tickster</h1>
-  <p>A simple productivity app.</p>
+  <div class="container">
+    <h1>TICKSTER</h1>
+    <p class="tagline">Pixel Dreams Reminder — macOS Menu Bar App</p>
 
-  <h2>Support</h2>
-  <p>If you have any issues, contact:</p>
-  <p>enuaui@163.com</p>
+    <div class="divider"></div>
 
-  <p><a href="privacy.html">Privacy Policy</a></p>
+    <h2>ABOUT</h2>
+    <p>Tickster is a lightweight menu bar reminder app for macOS. It helps you stay on top of recurring tasks — hydration breaks, weekly meetings, bill payments, and more — with a retro pixel-art interface and real-time countdown widgets.</p>
+
+    <h3>Task Types</h3>
+    <div class="feature-grid">
+      <div class="feature-card"><strong>One-Time</strong>Set a single reminder</div>
+      <div class="feature-card"><strong>Daily</strong>Repeat every day</div>
+      <div class="feature-card"><strong>Weekly</strong>Specific days of the week</div>
+      <div class="feature-card"><strong>Monthly / Yearly</strong>Same date each cycle</div>
+      <div class="feature-card"><strong>Custom Interval</strong>Every N minutes</div>
+      <div class="feature-card"><strong>Exclusion Rules</strong>Skip specific dates or time ranges</div>
+    </div>
+
+    <h3>More Features</h3>
+    <ul>
+      <li>Menu bar popover with live countdown to next task</li>
+      <li>Desktop widgets (Small, Medium, Large) with real-time progress</li>
+      <li>List view and grid (mosaic) view for task management</li>
+      <li>Notification actions: Postpone 30 min or Mark as Completed</li>
+      <li>Deep link support (<code>tickster://</code> URL scheme)</li>
+      <li>iCloud sync across your Macs (Pro)</li>
+      <li>Available in English, Chinese, Japanese, Korean, Spanish, French, German</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>FREE vs PRO</h2>
+    <p>Tickster is free to use with up to 3 tasks. A one-time Pro unlock ($1.99) gives you:</p>
+    <ul>
+      <li>Unlimited tasks</li>
+      <li>iCloud sync via CloudKit (private database)</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>SETUP</h2>
+    <h3>Notifications</h3>
+    <p>When you first launch Tickster, it will ask for permission to send notifications. This is required for reminders to fire. If you denied it, you can enable it later in <strong>System Settings &rarr; Notifications &rarr; Tickster</strong>.</p>
+
+    <h3>Widgets</h3>
+    <p>Right-click your desktop &rarr; <strong>Edit Widgets</strong> &rarr; search for "Tickster" to add countdown widgets.</p>
+
+    <h3>iCloud Sync</h3>
+    <p>Pro users can enable iCloud sync from the menu. Make sure you are signed into the same Apple ID on all your Macs. Sync uses CloudKit private database — your data is encrypted and only accessible by you.</p>
+
+    <div class="divider"></div>
+
+    <h2>TROUBLESHOOTING</h2>
+    <ul>
+      <li><strong>Notifications not appearing:</strong> Check System Settings &rarr; Notifications &rarr; Tickster. Ensure "Allow Notifications" is on and Alert style is set to "Alerts".</li>
+      <li><strong>Widget not updating:</strong> Remove and re-add the widget. macOS caches widgets aggressively — a restart may help.</li>
+      <li><strong>iCloud sync not working:</strong> Verify you're signed into iCloud and have internet access. Try toggling sync off and on from the menu.</li>
+      <li><strong>App doesn't appear in Dock:</strong> Tickster runs as a menu bar app. Look for the clock icon in your menu bar.</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>CONTACT</h2>
+    <div class="contact-box">
+      <p>For questions, bug reports, or feature requests:</p>
+      <p><a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
+    </div>
+    <p>We typically respond within 1–2 business days.</p>
+
+    <div class="divider"></div>
+
+    <p><a href="privacy.html">&rarr; Privacy Policy</a></p>
+
+    <div class="footer">
+      <p>Copyright &copy; 2026 Tickster. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy</a></p>
+    </div>
+  </div>
 </body>
 </html>

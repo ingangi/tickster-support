@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tickster — Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, 'SF Mono', 'Menlo', 'Courier New', monospace;
+      background: #0a0515;
+      color: #cccccc;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .container { max-width: 680px; margin: 0 auto; padding: 40px 24px 60px; }
+    h1 {
+      font-family: -apple-system, 'Courier New', monospace;
+      font-size: 28px;
+      color: #ff2d95;
+      text-shadow: 0 0 20px rgba(255,45,149,0.4);
+      margin-bottom: 6px;
+      letter-spacing: 4px;
+    }
+    .subtitle { color: #888899; font-size: 13px; margin-bottom: 8px; }
+    .effective-date { color: #555; font-size: 12px; margin-bottom: 36px; }
+    h2 {
+      font-size: 16px;
+      color: #00f0ff;
+      text-shadow: 0 0 10px rgba(0,240,255,0.3);
+      margin: 36px 0 12px;
+      letter-spacing: 2px;
+    }
+    h3 {
+      font-size: 14px;
+      color: #ff2d95;
+      margin: 20px 0 8px;
+    }
+    p { margin-bottom: 12px; font-size: 14px; }
+    ul { margin: 8px 0 16px 20px; font-size: 14px; }
+    li { margin-bottom: 6px; }
+    a { color: #00f0ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, rgba(255,45,149,0.3), transparent);
+      margin: 28px 0;
+    }
+    .highlight-box {
+      background: rgba(0,240,255,0.05);
+      border: 1px solid rgba(0,240,255,0.2);
+      padding: 16px 20px;
+      margin: 12px 0;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 13px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(255,45,149,0.1);
+    }
+    th { color: #00f0ff; font-weight: 600; }
+    .footer { margin-top: 48px; color: #555; font-size: 12px; text-align: center; }
+    .footer a { color: #888; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TICKSTER</h1>
+    <p class="subtitle">Privacy Policy</p>
+    <p class="effective-date">Last updated: April 19, 2026 &middot; Effective from first use</p>
+
+    <div class="divider"></div>
+
+    <div class="highlight-box">
+      <strong style="color:#00f0ff">TL;DR:</strong> Tickster does not collect, sell, or share your personal data. All task data is stored locally on your device. If you enable iCloud sync (Pro feature), your encrypted data is stored in your own iCloud account via CloudKit private database, which even Apple cannot read.
+    </div>
+
+    <h2>1. WHO WE ARE</h2>
+    <p>Tickster is developed by an independent developer ("we", "us", "our"). Our app is distributed through the Mac App Store.</p>
+    <p>Contact email: <a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
+
+    <h2>2. DATA WE COLLECT</h2>
+    <h3>2.1 Data You Provide</h3>
+    <p>When you use Tickster, you may create tasks that contain:</p>
+    <ul>
+      <li>Task titles and descriptions (text you enter)</li>
+      <li>Schedule preferences (times, days, recurrence rules)</li>
+      <li>Exclusion rules (dates or time ranges to skip)</li>
+    </ul>
+    <p>This data is created and controlled entirely by you.</p>
+
+    <h3>2.2 Automatically Generated Data</h3>
+    <p>Tickster stores the following automatically on your device:</p>
+    <ul>
+      <li>Notification delivery history (last 10 records per task, for displaying in-app)</li>
+      <li>Purchase receipt for Pro unlock (stored via App Group shared storage)</li>
+      <li>Sync timestamps (if iCloud sync is enabled)</li>
+    </ul>
+
+    <h3>2.3 What We Do NOT Collect</h3>
+    <ul>
+      <li>No personal identification information (name, email, phone)</li>
+      <li>No location data</li>
+      <li>No browsing history or usage analytics</li>
+      <li>No device identifiers or advertising IDs</li>
+      <li>No crash reports sent to third parties</li>
+      <li>No cookies or tracking pixels</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>3. HOW DATA IS STORED</h2>
+    <table>
+      <tr><th>Storage</th><th>What's Stored</th><th>Accessible By</th></tr>
+      <tr><td>Local UserDefaults</td><td>Tasks, notification history, preferences</td><td>You only (on-device)</td></tr>
+      <tr><td>App Group Container</td><td>Widget data, purchase status</td><td>Tickster app &amp; its extensions</td></tr>
+      <tr><td>CloudKit Private DB</td><td>Tasks (if iCloud sync enabled)</td><td>You only (via your Apple ID)</td></tr>
+    </table>
+    <p>All local data is stored in plain JSON format within your macOS user profile. No encryption is applied locally because the data never leaves your device unless you explicitly enable iCloud sync.</p>
+
+    <div class="divider"></div>
+
+    <h2>4. ICLOUD SYNC (PRO FEATURE)</h2>
+    <p>If you purchase Tickster Pro and enable iCloud sync:</p>
+    <ul>
+      <li>Your task data is synced via <strong>Apple CloudKit Private Database</strong></li>
+      <li>Data is encrypted in transit and at rest by Apple</li>
+      <li>Only you can access this data — neither we nor Apple can read it</li>
+      <li>Sync is optional and can be disabled at any time from the app menu</li>
+      <li>Disabling sync stops all CloudKit access but does not delete previously synced data from your iCloud account (you can manage this in System Settings &rarr; Apple ID &rarr; iCloud &rarr; Manage Storage)</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>5. NOTIFICATIONS</h2>
+    <p>Tickster sends <strong>local notifications only</strong> to remind you of your scheduled tasks. These are delivered through macOS's built-in notification system (UserNotifications framework).</p>
+    <ul>
+      <li>Notifications are scheduled locally on your device</li>
+      <li>No push notification server is used</li>
+      <li>No notification content is sent to any server</li>
+      <li>You can disable notifications at any time in System Settings &rarr; Notifications</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>6. THIRD-PARTY SERVICES</h2>
+    <p>Tickster uses only Apple's built-in frameworks:</p>
+    <ul>
+      <li><strong>StoreKit 2</strong> — for in-app purchase processing (handled by Apple)</li>
+      <li><strong>CloudKit</strong> — for optional iCloud sync (handled by Apple)</li>
+      <li><strong>WidgetKit</strong> — for desktop widgets</li>
+      <li><strong>UserNotifications</strong> — for local notifications</li>
+    </ul>
+    <p>We do not use any third-party analytics, advertising, crash reporting, or social media SDKs.</p>
+
+    <div class="divider"></div>
+
+    <h2>7. DATA SHARING</h2>
+    <p>We do <strong>not</strong> share your data with anyone. Specifically:</p>
+    <ul>
+      <li>We do not sell, rent, or trade user data</li>
+      <li>We do not share data with advertisers or data brokers</li>
+      <li>We do not share data with any third-party services</li>
+      <li>Apple may process your in-app purchase as part of App Store operations, subject to <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a></li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>8. DATA RETENTION &amp; DELETION</h2>
+    <ul>
+      <li>Task data is retained until you delete it within the app or uninstall the app</li>
+      <li>Uninstalling Tickster removes all local data</li>
+      <li>iCloud-synced data can be removed by deleting tasks in the app, or by managing iCloud storage in System Settings</li>
+      <li>Notification history is limited to the 10 most recent records per task and cycles automatically</li>
+    </ul>
+    <p>If you want all your data deleted, simply delete all tasks within the app and disable iCloud sync.</p>
+
+    <div class="divider"></div>
+
+    <h2>9. CHILDREN'S PRIVACY</h2>
+    <p>Tickster does not knowingly collect data from children under 13. The app is a general-purpose productivity tool and does not target any specific age group. If you believe a child has provided personal data through our app, please contact us and we will take steps to remove it.</p>
+
+    <h2>10. SECURITY</h2>
+    <p>Tickster runs within Apple's App Sandbox, which limits access to system resources. All iCloud data uses CloudKit's private database with encryption provided by Apple. While no system is perfectly secure, we follow Apple's best practices for data protection.</p>
+
+    <h2>11. YOUR RIGHTS</h2>
+    <p>Since Tickster stores all data locally or in your personal iCloud account, you have full control:</p>
+    <ul>
+      <li><strong>Access:</strong> All your data is visible within the app</li>
+      <li><strong>Deletion:</strong> Delete any task at any time; uninstall to remove all data</li>
+      <li><strong>Portability:</strong> Task data is stored in standard JSON format</li>
+      <li><strong>Withdrawal of consent:</strong> Disable notifications or iCloud sync at any time in System Settings</li>
+    </ul>
+
+    <h2>12. CHANGES TO THIS POLICY</h2>
+    <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated "Last updated" date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>13. CONTACT</h2>
+    <div class="highlight-box">
+      <p>If you have questions about this privacy policy or your data, please contact:</p>
+      <p><a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
+    </div>
+
+    <div class="footer">
+      <p>Copyright &copy; 2026 Tickster. All rights reserved.</p>
+      <p><a href="index.html">&larr; Back to Support</a></p>
+    </div>
+  </div>
+</body>
+</html>
