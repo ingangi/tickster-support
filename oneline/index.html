@@ -2,170 +2,401 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>OneLine — Support</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ── Color Tokens (light / dark) ─────────────────────── */
+    :root {
+      color-scheme: light dark;
+
+      --label:              #1d1d1f;
+      --label-secondary:    #6e6e73;
+      --label-tertiary:     #86868b;
+      --label-quaternary:   #aeaeb2;
+
+      --link:               #06c;
+      --link-dark:          #4da3ff;
+
+      --bg-primary:         #ffffff;
+      --bg-secondary:       #f5f5f7;
+      --bg-tertiary:        #ffffff;
+
+      --separator:          rgba(60, 60, 67, 0.12);
+      --separator-opaque:   #c6c6c8;
+
+      --fill:               rgba(120, 120, 128, 0.2);
+      --fill-secondary:     rgba(120, 120, 128, 0.16);
+
+      --radius-sm:  8px;
+      --radius-md:  12px;
+      --radius-lg:  16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --label:            #ffffff;
+        --label-secondary:  #ffffffcc;
+        --label-tertiary:   #ffffff8e;
+        --label-quaternary: #ffffff5e;
+
+        --link:             #4da3ff;
+        --link-dark:        #4da3ff;
+
+        --bg-primary:       #000000;
+        --bg-secondary:     #1c1c1e;
+        --bg-tertiary:      #2c2c2e;
+
+        --separator:        rgba(84, 84, 88, 0.65);
+        --separator-opaque: #38383a;
+
+        --fill:             rgba(120, 120, 128, 0.36);
+        --fill-secondary:   rgba(120, 120, 128, 0.32);
+      }
+    }
+
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Base ────────────────────────────────────────────── */
+    html {
+      font-size: 17px;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
-      font-family: -apple-system, 'SF Mono', 'Menlo', 'Courier New', monospace;
-      background: #0a0515;
-      color: #cccccc;
-      line-height: 1.7;
-      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont,
+                   'SF Pro Text', 'SF Pro Display',
+                   'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: var(--label);
+      background: var(--bg-primary);
+      line-height: 1.47; /* Apple body line-height */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'kern' 1;
+      text-rendering: optimizeLegibility;
     }
-    .container { max-width: 680px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    /* ── Header (icon + title) ─────────────────────────── */
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 0;
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      flex-shrink: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .app-icon {
+        box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    /* ── Typography (SF Pro scale) ───────────────────────── */
     h1 {
-      font-family: -apple-system, 'Courier New', monospace;
-      font-size: 28px;
-      color: #ff2d95;
-      text-shadow: 0 0 20px rgba(255,45,149,0.4);
-      margin-bottom: 6px;
-      letter-spacing: 4px;
+      font-size: 1.8824rem;   /* 34px — largeTitle */
+      font-weight: 700;
+      letter-spacing: 0.37px;
+      line-height: 1.12;
+      margin-bottom: 8px;
     }
-    .tagline { color: #888899; font-size: 13px; margin-bottom: 36px; }
+
+    .tagline {
+      font-size: 1rem;        /* 17px — body */
+      color: var(--label-secondary);
+      line-height: 1.47;
+      margin-bottom: 40px;
+    }
+
     h2 {
-      font-size: 16px;
-      color: #00f0ff;
-      text-shadow: 0 0 10px rgba(0,240,255,0.3);
-      margin: 36px 0 12px;
-      letter-spacing: 2px;
+      font-size: 1.2941rem;   /* 22px — title2 */
+      font-weight: 600;
+      letter-spacing: -0.41px;
+      line-height: 1.22;
+      margin: 48px 0 16px;
     }
+
     h3 {
-      font-size: 14px;
-      color: #ff2d95;
-      margin: 20px 0 8px;
+      font-size: 0.9412rem;   /* 16px — callout */
+      font-weight: 600;
+      letter-spacing: -0.32px;
+      margin: 24px 0 8px;
     }
-    p { margin-bottom: 12px; font-size: 14px; }
-    ul { margin: 8px 0 16px 20px; font-size: 14px; }
-    li { margin-bottom: 6px; }
-    a { color: #00f0ff; text-decoration: none; }
+
+    p {
+      color: var(--label-secondary);
+      line-height: 1.47;
+      margin-bottom: 16px;
+    }
+
+    strong { color: var(--label); font-weight: 600; }
+
+    /* ── Links ───────────────────────────────────────────── */
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
     a:hover { text-decoration: underline; }
-    .divider {
+    a:focus-visible {
+      outline: 4px solid rgba(0, 122, 255, 0.5);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* ── Lists ───────────────────────────────────────────── */
+    ul {
+      color: var(--label-secondary);
+      line-height: 1.47;
+      margin: 8px 0 20px;
+      padding-left: 24px;
+    }
+    li { margin-bottom: 8px; }
+
+    /* ── Separator (Apple grouped style) ─────────────────── */
+    hr {
+      border: none;
       height: 1px;
-      background: linear-gradient(to right, rgba(255,45,149,0.3), transparent);
-      margin: 28px 0;
+      background: var(--separator);
+      margin: 32px 0;
     }
-    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 20px; }
+
+    /* ── Feature Grid ────────────────────────────────────── */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0 24px;
+    }
+
     .feature-card {
-      background: rgba(255,45,149,0.05);
-      border: 1px solid rgba(255,45,149,0.15);
-      padding: 14px;
-      font-size: 13px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
     }
-    .feature-card strong { color: #00f0ff; display: block; margin-bottom: 4px; }
+
+    .feature-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--fill);
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .feature-card strong {
+      display: block;
+      font-size: 0.9412rem;  /* 16px */
+      font-weight: 600;
+      color: var(--label);
+      margin-bottom: 4px;
+    }
+
+    .feature-card span {
+      font-size: 0.8235rem;  /* 14px — subheadline */
+      color: var(--label-secondary);
+      line-height: 1.38;
+    }
+
+    /* ── Contact Box ─────────────────────────────────────── */
     .contact-box {
-      background: rgba(0,240,255,0.05);
-      border: 1px solid rgba(0,240,255,0.2);
-      padding: 16px 20px;
-      margin: 12px 0;
-      font-size: 14px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin: 16px 0;
     }
-    .contact-box a { font-size: 15px; font-weight: 600; }
-    .footer { margin-top: 48px; color: #555; font-size: 12px; text-align: center; }
-    .footer a { color: #888; }
+    .contact-box p { margin-bottom: 6px; }
+    .contact-box p:last-child { margin-bottom: 0; }
+    .contact-box a { font-weight: 500; }
+
+    /* ── CTA Link ────────────────────────────────────────── */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+    .cta::after { content: '\203A'; font-size: 1.2em; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--separator);
+      font-size: 0.7059rem;  /* 12px — caption */
+      color: var(--label-tertiary);
+    }
+    .footer a { color: var(--label-tertiary); }
+    .footer-links { display: flex; gap: 24px; margin-top: 8px; }
+
+    /* ── Accessibility ───────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 48px 20px 80px; }
+      h1 { font-size: 1.5294rem; /* 26px */ }
+      h2 { font-size: 1.1765rem; /* 20px */ }
+      .features { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>ONELINE</h1>
-    <p class="tagline">专注阅读 — iOS Reading Training App</p>
 
-    <div class="divider"></div>
+    <header class="app-header">
+      <img class="app-icon" src="app-icon.png" alt="OneLine" width="80" height="80">
+      <div>
+        <h1>OneLine</h1>
+        <p class="tagline">专注阅读 — Reading Training App for Kids</p>
+      </div>
+    </header>
 
-    <h2>ABOUT</h2>
-    <p>OneLine (一行) is a reading training app designed for children with attention difficulties (ages 8–15). By displaying one line at a time, it reduces visual distraction and helps build focused reading habits — combining text-to-speech narration, comprehension checks, and a reward system to keep children motivated.</p>
+    <hr>
 
-    <h3>Reading Features</h3>
-    <div class="feature-grid">
-      <div class="feature-card"><strong>Line-by-Line Reading</strong>One line at a time to stay focused</div>
-      <div class="feature-card"><strong>Text-to-Speech</strong>Chinese voice narration with emotion</div>
-      <div class="feature-card"><strong>Camera OCR</strong>Scan textbook pages to import text</div>
-      <div class="feature-card"><strong>Comprehension Check</strong>Post-reading summary verification</div>
-    </div>
+    <section>
+      <h2>About</h2>
+      <p>OneLine is a reading training app designed for children ages 8 to 15, especially those who find it hard to stay focused while reading. By showing one line at a time, it cuts visual distractions and builds real reading habits — with text-to-speech narration, comprehension checks, and a reward system to keep kids motivated.</p>
 
-    <h3>Import Methods</h3>
-    <ul>
-      <li>Camera OCR — take photos of textbooks or printed materials</li>
-      <li>Photo Library — select existing images for text recognition</li>
-      <li>TXT / EPUB file import</li>
-      <li>Manual text input</li>
-      <li>17 built-in Chinese fables and children's stories</li>
-    </ul>
+      <h3>Reading</h3>
+      <div class="features">
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <strong>Line-by-Line Mode</strong>
+          <span>One line at a time to stay focused</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔊</div>
+          <strong>Text-to-Speech</strong>
+          <span>Chinese narration with natural emotion</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <strong>Camera OCR</strong>
+          <span>Scan textbook pages to import text</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <strong>Comprehension</strong>
+          <span>Post-reading summary verification</span>
+        </div>
+      </div>
 
-    <h3>Focus Aids</h3>
-    <ul>
-      <li>Companion character display for encouragement</li>
-      <li>Breathing animation for calm-down moments</li>
-      <li>Focus mask and spotlight mode to highlight current line</li>
-      <li>Zen mode — minimalist, distraction-free interface</li>
-      <li>Haptic feedback on line changes</li>
-    </ul>
+      <h3>Import</h3>
+      <ul>
+        <li>Camera — scan printed text in real time</li>
+        <li>Photo Library — select existing images</li>
+        <li>TXT / EPUB file import</li>
+        <li>Manual text input</li>
+        <li>17 built-in Chinese fables and stories</li>
+      </ul>
 
-    <h3>Gamification</h3>
-    <ul>
-      <li>Bronze / Silver / Gold tier achievements for reading milestones</li>
-      <li>Daily and weekly reading challenges</li>
-      <li>Parent-configurable rewards (TV time, toys, outings, etc.)</li>
-      <li>Reward redemption with parent confirmation</li>
-      <li>Reading streak tracking (3, 7, 30 days)</li>
-    </ul>
+      <h3>Focus Aids</h3>
+      <ul>
+        <li>Companion character for encouragement</li>
+        <li>Breathing animation for calm-down moments</li>
+        <li>Focus mask and spotlight on the current line</li>
+        <li>Zen mode — minimalist, distraction-free</li>
+        <li>Haptic feedback on line changes</li>
+      </ul>
 
-    <div class="divider"></div>
+      <h3>Gamification</h3>
+      <ul>
+        <li>Bronze, Silver, Gold achievements for reading milestones</li>
+        <li>Daily and weekly reading challenges</li>
+        <li>Parent-configurable rewards (TV time, toys, outings)</li>
+        <li>Reward redemption with parent confirmation</li>
+        <li>Reading streaks (3, 7, 30 days)</li>
+      </ul>
+    </section>
 
-    <h2>PRICING</h2>
-    <p>OneLine is completely free. There are no in-app purchases, subscriptions, or ads.</p>
+    <hr>
 
-    <div class="divider"></div>
+    <section>
+      <h2>Pricing</h2>
+      <p>OneLine is completely free. No in-app purchases, no subscriptions, no ads.</p>
+    </section>
 
-    <h2>SETUP</h2>
-    <h3>Permissions</h3>
-    <p>OneLine may ask for the following permissions. All are optional and only used when you actively enable the feature:</p>
-    <ul>
-      <li><strong>Camera</strong> — for scanning printed text via OCR</li>
-      <li><strong>Photo Library</strong> — for selecting images to recognize text from</li>
-      <li><strong>Microphone</strong> — for voice input during comprehension checks</li>
-      <li><strong>Speech Recognition</strong> — for processing your spoken responses</li>
-    </ul>
-    <p>If you denied a permission, you can enable it in <strong>Settings &rarr; OneLine</strong> on your iOS device.</p>
+    <hr>
 
-    <h3>Parent Dashboard</h3>
-    <p>Parents can access a hidden dashboard by pressing and holding the header area for 3 seconds. From here you can configure rewards, view reading statistics, and manage achievement settings.</p>
+    <section>
+      <h2>Setup</h2>
 
-    <h3>Customization</h3>
-    <ul>
-      <li>Three reading themes: Light, Sepia, Dark</li>
-      <li>Four font size levels</li>
-      <li>Adjustable line spacing</li>
-      <li>TTS voice options: female, male, child</li>
-    </ul>
+      <h3>Permissions</h3>
+      <p>OneLine may ask for the following permissions. All are optional and only used when you actively enable the feature:</p>
+      <ul>
+        <li><strong>Camera</strong> — scan printed text via OCR</li>
+        <li><strong>Photo Library</strong> — select images for text recognition</li>
+        <li><strong>Microphone</strong> — voice input during comprehension checks</li>
+        <li><strong>Speech Recognition</strong> — process spoken responses</li>
+      </ul>
+      <p>If you denied a permission, you can enable it in <strong>Settings &rarr; OneLine</strong>.</p>
 
-    <div class="divider"></div>
+      <h3>Parent Dashboard</h3>
+      <p>Press and hold the header area for 3 seconds to access the hidden parent dashboard. From here you can configure rewards, view reading statistics, and manage achievement settings.</p>
 
-    <h2>TROUBLESHOOTING</h2>
-    <ul>
-      <li><strong>Camera OCR not working:</strong> Ensure camera permission is granted in Settings &rarr; OneLine. Make sure the text is well-lit and in focus.</li>
-      <li><strong>Text-to-Speech not playing:</strong> Check that your device is not in silent mode. Go to Settings &rarr; Accessibility &rarr; Spoken Content to verify Chinese voices are downloaded.</li>
-      <li><strong>Voice input not responding:</strong> Ensure microphone permission is granted. Speak clearly in a quiet environment.</li>
-      <li><strong>Data lost after app update:</strong> All data is stored locally on your device. Make sure the app is not uninstalled, as that will permanently remove all reading data.</li>
-    </ul>
+      <h3>Customization</h3>
+      <ul>
+        <li>Three themes: Light, Sepia, Dark</li>
+        <li>Four font size levels</li>
+        <li>Adjustable line spacing</li>
+        <li>TTS voice: female, male, child</li>
+      </ul>
+    </section>
 
-    <div class="divider"></div>
+    <hr>
 
-    <h2>CONTACT</h2>
-    <div class="contact-box">
-      <p>For questions, bug reports, or feature requests:</p>
-      <p><a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
-    </div>
-    <p>We typically respond within 1–2 business days.</p>
+    <section>
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li><strong>Camera OCR not working:</strong> Make sure Camera permission is granted in Settings &rarr; OneLine. Use good lighting and keep the text in focus.</li>
+        <li><strong>Text-to-Speech not playing:</strong> Check that your device isn't in silent mode. Go to Settings &rarr; Accessibility &rarr; Spoken Content to verify Chinese voices are downloaded.</li>
+        <li><strong>Voice input not responding:</strong> Make sure Microphone permission is granted. Speak clearly in a quiet environment.</li>
+        <li><strong>Data lost after update:</strong> All data is stored locally on your device. Uninstalling the app permanently removes all reading data.</li>
+      </ul>
+    </section>
 
-    <div class="divider"></div>
+    <hr>
 
-    <p><a href="privacy.html">&rarr; Privacy Policy</a></p>
+    <section>
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <p>For questions, bug reports, or feature requests:</p>
+        <p><a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
+      </div>
+      <p>We typically respond within 1&ndash;2 business days.</p>
+    </section>
 
-    <div class="footer">
-      <p>Copyright &copy; 2026 OneLine. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy</a></p>
-    </div>
+    <hr>
+
+    <p><a class="cta" href="privacy.html">Privacy Policy</a></p>
+
+    <footer class="footer">
+      <p>&copy; 2026 OneLine. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:enuaui@163.com">Contact</a>
+      </div>
+    </footer>
   </div>
 </body>
 </html>

@@ -2,216 +2,468 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>OneLine — Privacy Policy</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ── Color Tokens (light / dark) ─────────────────────── */
+    :root {
+      color-scheme: light dark;
+
+      --label:              #1d1d1f;
+      --label-secondary:    #6e6e73;
+      --label-tertiary:     #86868b;
+      --label-quaternary:   #aeaeb2;
+
+      --link:               #06c;
+      --link-dark:          #4da3ff;
+
+      --bg-primary:         #ffffff;
+      --bg-secondary:       #f5f5f7;
+      --bg-tertiary:        #ffffff;
+
+      --separator:          rgba(60, 60, 67, 0.12);
+      --separator-opaque:   #c6c6c8;
+
+      --fill:               rgba(120, 120, 128, 0.2);
+      --fill-secondary:     rgba(120, 120, 128, 0.16);
+
+      --radius-sm:  8px;
+      --radius-md:  12px;
+      --radius-lg:  16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --label:            #ffffff;
+        --label-secondary:  #ffffffcc;
+        --label-tertiary:   #ffffff8e;
+        --label-quaternary: #ffffff5e;
+
+        --link:             #4da3ff;
+        --link-dark:        #4da3ff;
+
+        --bg-primary:       #000000;
+        --bg-secondary:     #1c1c1e;
+        --bg-tertiary:      #2c2c2e;
+
+        --separator:        rgba(84, 84, 88, 0.65);
+        --separator-opaque: #38383a;
+
+        --fill:             rgba(120, 120, 128, 0.36);
+        --fill-secondary:   rgba(120, 120, 128, 0.32);
+      }
+    }
+
+    /* ── Reset ───────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Base ────────────────────────────────────────────── */
+    html {
+      font-size: 17px;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
-      font-family: -apple-system, 'SF Mono', 'Menlo', 'Courier New', monospace;
-      background: #0a0515;
-      color: #cccccc;
-      line-height: 1.7;
-      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont,
+                   'SF Pro Text', 'SF Pro Display',
+                   'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: var(--label);
+      background: var(--bg-primary);
+      line-height: 1.47;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'kern' 1;
+      text-rendering: optimizeLegibility;
     }
-    .container { max-width: 680px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* ── Layout ──────────────────────────────────────────── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    /* ── Header (icon + title) ─────────────────────────── */
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 0;
+    }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .app-icon {
+        box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12);
+      }
+    }
+
+    /* ── Typography (SF Pro scale) ───────────────────────── */
     h1 {
-      font-family: -apple-system, 'Courier New', monospace;
-      font-size: 28px;
-      color: #ff2d95;
-      text-shadow: 0 0 20px rgba(255,45,149,0.4);
-      margin-bottom: 6px;
-      letter-spacing: 4px;
+      font-size: 1.8824rem;   /* 34px — largeTitle */
+      font-weight: 700;
+      letter-spacing: 0.37px;
+      line-height: 1.12;
+      margin-bottom: 4px;
     }
-    .subtitle { color: #888899; font-size: 13px; margin-bottom: 8px; }
-    .effective-date { color: #555; font-size: 12px; margin-bottom: 36px; }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--label-secondary);
+      margin-bottom: 4px;
+    }
+
+    .effective-date {
+      font-size: 0.8235rem;   /* 14px — subheadline */
+      color: var(--label-tertiary);
+      margin-bottom: 40px;
+    }
+
     h2 {
-      font-size: 16px;
-      color: #00f0ff;
-      text-shadow: 0 0 10px rgba(0,240,255,0.3);
-      margin: 36px 0 12px;
-      letter-spacing: 2px;
+      font-size: 1.1765rem;   /* 20px — title3 */
+      font-weight: 600;
+      letter-spacing: -0.41px;
+      line-height: 1.22;
+      margin: 40px 0 16px;
     }
+
     h3 {
-      font-size: 14px;
-      color: #ff2d95;
-      margin: 20px 0 8px;
+      font-size: 0.9412rem;   /* 16px — callout */
+      font-weight: 600;
+      letter-spacing: -0.32px;
+      margin: 24px 0 8px;
     }
-    p { margin-bottom: 12px; font-size: 14px; }
-    ul { margin: 8px 0 16px 20px; font-size: 14px; }
-    li { margin-bottom: 6px; }
-    a { color: #00f0ff; text-decoration: none; }
+
+    p {
+      color: var(--label-secondary);
+      line-height: 1.47;
+      margin-bottom: 16px;
+    }
+
+    strong { color: var(--label); font-weight: 600; }
+
+    /* ── Links ───────────────────────────────────────────── */
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
     a:hover { text-decoration: underline; }
-    .divider {
+    a:focus-visible {
+      outline: 4px solid rgba(0, 122, 255, 0.5);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* ── Lists ───────────────────────────────────────────── */
+    ul {
+      color: var(--label-secondary);
+      line-height: 1.47;
+      margin: 8px 0 20px;
+      padding-left: 24px;
+    }
+    li { margin-bottom: 8px; }
+
+    /* ── Separator ───────────────────────────────────────── */
+    hr {
+      border: none;
       height: 1px;
-      background: linear-gradient(to right, rgba(255,45,149,0.3), transparent);
-      margin: 28px 0;
+      background: var(--separator);
+      margin: 32px 0;
     }
-    .highlight-box {
-      background: rgba(0,240,255,0.05);
-      border: 1px solid rgba(0,240,255,0.2);
-      padding: 16px 20px;
-      margin: 12px 0;
-      font-size: 14px;
+
+    /* ── Callout Box ─────────────────────────────────────── */
+    .callout {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin: 16px 0;
     }
+    .callout p { margin-bottom: 6px; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* ── Table (Apple grouped style) ─────────────────────── */
+    .table-group {
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 16px 0 20px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 12px 0 20px;
-      font-size: 13px;
+      font-size: 0.8235rem;   /* 14px */
     }
-    th, td {
+
+    th {
       text-align: left;
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(255,45,149,0.1);
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 0.7059rem;   /* 12px — caption */
+      color: var(--label-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
-    th { color: #00f0ff; font-weight: 600; }
-    .footer { margin-top: 48px; color: #555; font-size: 12px; text-align: center; }
-    .footer a { color: #888; }
+
+    td {
+      padding: 12px 16px;
+      color: var(--label-secondary);
+      border-top: 1px solid var(--separator);
+    }
+
+    td:first-child {
+      color: var(--label);
+      font-weight: 500;
+    }
+
+    /* ── Privacy badge ───────────────────────────────────── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--fill-secondary);
+      font-size: 0.7059rem;   /* 12px */
+      font-weight: 600;
+      color: var(--label-secondary);
+      margin-bottom: 16px;
+    }
+    .badge-icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ── Back Link ───────────────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.8235rem;
+      font-weight: 500;
+      color: var(--link);
+    }
+    .back-link::before { content: '\2039'; font-size: 1.2em; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--separator);
+      font-size: 0.7059rem;
+      color: var(--label-tertiary);
+    }
+    .footer a { color: var(--label-tertiary); }
+
+    /* ── Accessibility ───────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 48px 20px 80px; }
+      h1 { font-size: 1.5294rem; }
+      h2 { font-size: 1.0588rem; /* 18px */ }
+      .table-group { border-radius: var(--radius-sm); }
+      th, td { padding: 10px 12px; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>ONELINE</h1>
-    <p class="subtitle">Privacy Policy</p>
-    <p class="effective-date">Last updated: April 24, 2026 &middot; Effective from first use</p>
 
-    <div class="divider"></div>
+    <header class="app-header">
+      <img class="app-icon" src="app-icon.png" alt="OneLine" width="64" height="64">
+      <div>
+        <h1>OneLine</h1>
+        <p class="subtitle">Privacy Policy</p>
+        <p class="effective-date">Last updated: April 24, 2026 &middot; Effective from first use</p>
+      </div>
+    </header>
 
-    <div class="highlight-box">
-      <strong style="color:#00f0ff">TL;DR:</strong> OneLine does not collect, transmit, sell, or share any personal data. All reading data, progress, and settings are stored locally on your device. The app does not use any third-party services, analytics, or advertising. No account registration is required.
+    <hr>
+
+    <div class="callout">
+      <p><strong style="color:var(--label)">Short version:</strong> OneLine does not collect, transmit, sell, or share any personal data. All reading data and settings are stored locally on your device. The app does not use any third-party services, analytics, or advertising. No account registration is required.</p>
     </div>
 
-    <h2>1. WHO WE ARE</h2>
-    <p>OneLine is developed by an independent developer ("we", "us", "our"). Our app is distributed through the iOS App Store.</p>
-    <p>Contact email: <a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
+    <section>
+      <h2>1. Who We Are</h2>
+      <p>OneLine is developed by an independent developer ("we", "us", "our"). The app is distributed through the iOS App Store.</p>
+      <p>Contact: <a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
+    </section>
 
-    <h2>2. DATA WE COLLECT</h2>
-    <h3>2.1 Data You Provide</h3>
-    <p>When you use OneLine, you may create or import content that is stored on your device:</p>
-    <ul>
-      <li>Imported book text (via camera OCR, photo library, TXT/EPUB files, or manual input)</li>
-      <li>Reading progress and history</li>
-      <li>Bookmarks and notes</li>
-      <li>Comprehension check responses (text or voice input)</li>
-      <li>Custom reward configurations set by parents</li>
-    </ul>
-    <p>This data is created and controlled entirely by you, stored only on your device.</p>
+    <section>
+      <h2>2. Data We Collect</h2>
 
-    <h3>2.2 Automatically Generated Data</h3>
-    <p>OneLine stores the following automatically on your device:</p>
-    <ul>
-      <li>Reading statistics (total reading time, books completed, streaks)</li>
-      <li>Achievement progress and unlock history</li>
-      <li>Reward redemption records</li>
-      <li>User preferences (theme, font size, TTS voice selection)</li>
-    </ul>
+      <h3>2.1 Data You Provide</h3>
+      <p>When you use OneLine, you may create or import content stored only on your device:</p>
+      <ul>
+        <li>Imported book text (via camera OCR, photos, TXT/EPUB, or manual input)</li>
+        <li>Reading progress and history</li>
+        <li>Bookmarks and notes</li>
+        <li>Comprehension check responses</li>
+        <li>Custom reward configurations set by parents</li>
+      </ul>
+      <p>This data is created and controlled entirely by you.</p>
 
-    <h3>2.3 What We Do NOT Collect</h3>
-    <ul>
-      <li>No personal identification information (name, email, phone)</li>
-      <li>No location data</li>
-      <li>No browsing history or usage analytics</li>
-      <li>No device identifiers or advertising IDs</li>
-      <li>No crash reports sent to third parties</li>
-      <li>No cookies or tracking pixels</li>
-      <li>No account registration of any kind</li>
-    </ul>
+      <h3>2.2 Automatically Generated Data</h3>
+      <p>OneLine stores the following on your device:</p>
+      <ul>
+        <li>Reading statistics (time, books completed, streaks)</li>
+        <li>Achievement progress and unlock history</li>
+        <li>Reward redemption records</li>
+        <li>User preferences (theme, font size, TTS voice)</li>
+      </ul>
 
-    <div class="divider"></div>
+      <h3>2.3 What We Do Not Collect</h3>
+      <ul>
+        <li>No personal identification information</li>
+        <li>No location data</li>
+        <li>No browsing history or usage analytics</li>
+        <li>No device identifiers or advertising IDs</li>
+        <li>No crash reports sent to third parties</li>
+        <li>No cookies or tracking pixels</li>
+        <li>No account registration</li>
+      </ul>
+    </section>
 
-    <h2>3. HOW DATA IS STORED</h2>
-    <table>
-      <tr><th>Storage</th><th>What's Stored</th><th>Accessible By</th></tr>
-      <tr><td>SwiftData (Local)</td><td>Books, reading history, bookmarks, achievements, rewards</td><td>You only (on-device)</td></tr>
-      <tr><td>UserDefaults</td><td>Preferences, theme, font size, settings</td><td>You only (on-device)</td></tr>
-    </table>
-    <p>All data is stored locally within the app's sandbox on your iOS device. No data is transmitted to any server. No network communication occurs at any point.</p>
+    <hr>
 
-    <div class="divider"></div>
+    <section>
+      <h2>3. How Data Is Stored</h2>
+      <div class="table-group">
+        <table>
+          <thead>
+            <tr><th>Storage</th><th>What's Stored</th><th>Accessible By</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SwiftData</td><td>Books, history, bookmarks, achievements, rewards</td><td>You only</td></tr>
+            <tr><td>UserDefaults</td><td>Preferences, theme, settings</td><td>You only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>All data is stored locally within the app's sandbox on your iOS device. No data is transmitted to any server. No network communication occurs at any point.</p>
+    </section>
 
-    <h2>4. DEVICE PERMISSIONS</h2>
-    <p>OneLine may request the following device permissions. All are optional and only used when you actively enable the corresponding feature:</p>
-    <table>
-      <tr><th>Permission</th><th>Purpose</th><th>Required?</th></tr>
-      <tr><td>Camera</td><td>Scan printed text via OCR for import</td><td>No — only for camera import</td></tr>
-      <tr><td>Photo Library</td><td>Select images for text recognition</td><td>No — only for photo import</td></tr>
-      <tr><td>Microphone</td><td>Voice input during comprehension checks</td><td>No — typing is always available</td></tr>
-      <tr><td>Speech Recognition</td><td>Process spoken responses for comprehension</td><td>No — only for voice input</td></tr>
-    </table>
-    <p>Speech recognition processing is performed on-device using Apple's built-in Speech framework. No audio is sent to any server.</p>
+    <hr>
 
-    <div class="divider"></div>
+    <section>
+      <h2>4. Device Permissions</h2>
+      <p>OneLine may request the following permissions. All are optional:</p>
+      <div class="table-group">
+        <table>
+          <thead>
+            <tr><th>Permission</th><th>Purpose</th><th>Required</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Camera</td><td>Scan printed text via OCR</td><td>No</td></tr>
+            <tr><td>Photo Library</td><td>Select images for text recognition</td><td>No</td></tr>
+            <tr><td>Microphone</td><td>Voice input for comprehension checks</td><td>No</td></tr>
+            <tr><td>Speech Recognition</td><td>Process spoken responses</td><td>No</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Speech recognition is performed on-device using Apple's Speech framework. No audio is sent to any server.</p>
+    </section>
 
-    <h2>5. THIRD-PARTY SERVICES</h2>
-    <p>OneLine uses only Apple's built-in frameworks:</p>
-    <ul>
-      <li><strong>SwiftUI</strong> — user interface</li>
-      <li><strong>SwiftData</strong> — local data persistence</li>
-      <li><strong>AVFoundation / AVFAudio</strong> — text-to-speech audio playback</li>
-      <li><strong>Speech</strong> — on-device speech recognition</li>
-      <li><strong>Vision</strong> — on-device OCR text recognition</li>
-      <li><strong>PhotosUI</strong> — photo picker for image selection</li>
-      <li><strong>NaturalLanguage</strong> — text processing</li>
-    </ul>
-    <p>We do not use any third-party analytics, advertising, crash reporting, or social media SDKs. No third-party code is bundled with the app.</p>
+    <hr>
 
-    <div class="divider"></div>
+    <section>
+      <h2>5. Third-Party Services</h2>
+      <p>OneLine uses only Apple's built-in frameworks:</p>
+      <ul>
+        <li><strong>SwiftUI</strong> — user interface</li>
+        <li><strong>SwiftData</strong> — local data persistence</li>
+        <li><strong>AVFoundation</strong> — text-to-speech playback</li>
+        <li><strong>Speech</strong> — on-device speech recognition</li>
+        <li><strong>Vision</strong> — on-device OCR</li>
+        <li><strong>PhotosUI</strong> — photo picker</li>
+      </ul>
+      <p>We do not use any third-party analytics, advertising, crash reporting, or social media SDKs.</p>
+    </section>
 
-    <h2>6. DATA SHARING</h2>
-    <p>We do <strong>not</strong> share your data with anyone. Specifically:</p>
-    <ul>
-      <li>We do not sell, rent, or trade user data</li>
-      <li>We do not share data with advertisers or data brokers</li>
-      <li>We do not share data with any third-party services</li>
-      <li>No data is transmitted over the internet at any time</li>
-    </ul>
+    <hr>
 
-    <div class="divider"></div>
+    <section>
+      <h2>6. Data Sharing</h2>
+      <p>We do <strong>not</strong> share your data with anyone:</p>
+      <ul>
+        <li>We do not sell, rent, or trade user data</li>
+        <li>We do not share data with advertisers or data brokers</li>
+        <li>We do not share data with any third-party services</li>
+        <li>No data is transmitted over the internet at any time</li>
+      </ul>
+    </section>
 
-    <h2>7. DATA RETENTION &amp; DELETION</h2>
-    <ul>
-      <li>All data is retained on your device until you delete it within the app or uninstall the app</li>
-      <li>Uninstalling OneLine permanently removes all local data — there is no backup or recovery</li>
-      <li>You can delete individual books, reading history, bookmarks, and rewards at any time from within the app</li>
-    </ul>
-    <p>If you want all your data deleted, simply uninstall the app from your device.</p>
+    <hr>
 
-    <div class="divider"></div>
+    <section>
+      <h2>7. Data Retention &amp; Deletion</h2>
+      <ul>
+        <li>All data is retained on your device until you delete it within the app or uninstall the app</li>
+        <li>Uninstalling OneLine permanently removes all local data</li>
+        <li>You can delete individual books, history, bookmarks, and rewards at any time</li>
+      </ul>
+      <p>If you want all data deleted, uninstall the app from your device.</p>
+    </section>
 
-    <h2>8. CHILDREN'S PRIVACY</h2>
-    <p>OneLine is designed for children ages 8–15, including those with attention difficulties such as ADHD. We take children's privacy seriously:</p>
-    <ul>
-      <li>No account registration is required — there is no way for children to share personal information with us</li>
-      <li>No data is collected, transmitted, or accessible to anyone outside the device</li>
-      <li>The app complies with COPPA (Children's Online Privacy Protection Act) as no personal information is collected from children</li>
-      <li>Parent-configurable rewards and the hidden parent dashboard give parents full control over the experience</li>
-      <li>No in-app purchases, no advertising, no external links accessible to children</li>
-    </ul>
+    <hr>
 
-    <h2>9. SECURITY</h2>
-    <p>OneLine runs within Apple's iOS App Sandbox, which strictly limits access to system resources and other apps' data. Since no data leaves the device, the attack surface is minimal. All text recognition and speech processing is performed on-device.</p>
+    <section>
+      <h2>8. Children's Privacy</h2>
+      <p>OneLine is designed for children ages 8 to 15, including those with attention difficulties such as ADHD:</p>
+      <ul>
+        <li>No account registration — no way for children to share personal information</li>
+        <li>No data is collected, transmitted, or accessible outside the device</li>
+        <li>Complies with COPPA — no personal information is collected from children</li>
+        <li>Parent-configurable rewards and a hidden parent dashboard give parents full control</li>
+        <li>No in-app purchases, no advertising, no external links</li>
+      </ul>
+    </section>
 
-    <h2>10. YOUR RIGHTS</h2>
-    <p>Since OneLine stores all data locally on your device, you have full control:</p>
-    <ul>
-      <li><strong>Access:</strong> All your data is visible within the app</li>
-      <li><strong>Deletion:</strong> Delete any book, history entry, or bookmark at any time; uninstall to remove all data</li>
-      <li><strong>No lock-in:</strong> Since no account exists, there is no data held by us to request</li>
-    </ul>
+    <section>
+      <h2>9. Security</h2>
+      <p>OneLine runs within Apple's iOS App Sandbox, which strictly limits access to system resources. Since no data leaves the device, the attack surface is minimal. All text recognition and speech processing is performed on-device.</p>
+    </section>
 
-    <h2>11. CHANGES TO THIS POLICY</h2>
-    <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated "Last updated" date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+    <section>
+      <h2>10. Your Rights</h2>
+      <p>Since all data is stored locally, you have full control:</p>
+      <ul>
+        <li><strong>Access:</strong> All data is visible within the app</li>
+        <li><strong>Deletion:</strong> Delete any item at any time; uninstall to remove all data</li>
+        <li><strong>No lock-in:</strong> No account exists, so there is no data held by us</li>
+      </ul>
+    </section>
 
-    <h2>12. CONTACT</h2>
-    <div class="highlight-box">
-      <p>If you have questions about this privacy policy or your data, please contact:</p>
-      <p><a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
-    </div>
+    <section>
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated date. Continued use after changes constitutes acceptance.</p>
+    </section>
 
-    <div class="footer">
-      <p>Copyright &copy; 2026 OneLine. All rights reserved.</p>
-      <p><a href="index.html">&larr; Back to Support</a></p>
-    </div>
+    <section>
+      <h2>12. Contact</h2>
+      <div class="callout">
+        <p>Questions about this policy or your data:</p>
+        <p><a href="mailto:enuaui@163.com">enuaui@163.com</a></p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 OneLine. All rights reserved.</p>
+      <p style="margin-top:8px"><a class="back-link" href="index.html">Back to Support</a></p>
+    </footer>
   </div>
 </body>
 </html>
